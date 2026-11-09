@@ -1,0 +1,124 @@
+th {
+background: var(--primary);
+color: #fff;
+font-size: .82rem;
+font-weight: 600;
+letter-spacing: .04em;
+text-transform: uppercase;
+white-space: nowrap;
+}
+tbody tr:last-child td { border-bottom: none; } /* a última linha sem borda */
+tbody tr:hover { background: #f8fafc; } /* linha clareia com o mouse */
+/* Larguras fixas das colunas pequenas. */
+.col-foto,
+.col-capa { width: 90px; white-space: nowrap; }
+.col-youtube { width: 110px; white-space: nowrap; }
+.col-acoes { white-space: nowrap; }
+/* Editar, Excluir (e Músicas) lado a lado. */
+.action-buttons {
+display: flex;
+gap: 6px;
+align-items: center;
+flex-wrap: nowrap;
+}
+/* [Sprint 2] A miniatura da capa ou da foto de verdade. */
+.table-thumbnail {
+width: 60px;
+height: 60px;
+object-fit: cover;
+border-radius: 6px;
+display: block;
+}
+/* O quadrado "Sem capa / Sem foto": borda tracejada e texto no meio. */
+.no-image {
+width: 60px;
+height: 60px;
+background: var(--bg);
+border: 1.5px dashed var(--border);
+border-radius: 6px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: .7rem;
+color: var(--text-muted);
+text-align: center;
+line-height: 1.2;
+}
+/* [Sprint 2] Célula de "nenhuma música encontrada". */
+td.empty-cell {
+text-align: center;
+color: var(--text-muted);
+padding: 2rem;
+font-size: .95rem;
+}
+/* -----------------------------------------------
+14. FILTROS [AULA 2]
+----------------------------------------------- */
+.filters {
+background: var(--surface);
+padding: 1.25rem 1.5rem;
+border-radius: var(--radius);
+box-shadow: var(--shadow-sm);
+margin-bottom: 1.5rem;
+border: 1px solid var(--border);
+}
+/* Os filtros lado a lado. flex-wrap: descem se não couber. */
+.filter-group {
+display: flex;
+gap: 1rem;
+flex-wrap: wrap;
+margin-bottom: 1rem;
+}
+/* flex: 1 = cada filtro pega a mesma fatia do espaço.
+min-width impede que fique fino demais. */
+.filter-item {
+flex: 1;
+min-width: 180px;
+}
+.filter-item label {
+font-size: .82rem;
+}
+.filter-actions {
+display: flex;
+gap: .75rem;
+align-items: center;
+}
+/* -----------------------------------------------
+15. UTILITÁRIOS [AULA 4]
+Classes pequenas para usar direto no HTML, sem criar regra nova.
+mt = margin-top, mb = margin-bottom.
+----------------------------------------------- */
+.text-center { text-align: center; }
+.text-muted { color: var(--text-muted); font-size: .9rem; }
+.mt-1 { margin-top: .5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mb-1 { margin-bottom: .5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+/* -----------------------------------------------
+16. RESPONSIVIDADE [AULA 4]
+Tudo aqui dentro só vale em telas de até 768px (celular e
+tablet em pé). Fica no FIM do arquivo para vencer as regras de cima.
+Teste: F12, depois o ícone de celular (modo responsivo).
+----------------------------------------------- */
+@media (max-width: 768px) {
+.container { padding: 16px; } /* menos espaço nas bordas */
+h2 { font-size: 1.4rem; }
+form { padding: 1.25rem; }
+.form-grid { grid-template-columns: 1fr; } /* formulário em 1 coluna */
+.filter-group { flex-direction: column; gap: .75rem; } /* filtros empilhados */
+.filter-item { min-width: 100%; }
+.table-container { overflow-x: auto; } /* tabela rola para o lado */
+table { min-width: 560px; }
+th, td { padding: 10px 12px; font-size: .85rem; }
+.table-thumbnail,
+.no-image { width: 48px; height: 48px; }
+.col-foto, .col-capa { width: 68px; }
+.action-buttons { flex-wrap: wrap; gap: 4px; }
+.btn-edit, .btn-delete, .btn-music, .btn-youtube {
+padding: .4rem .7rem;
+font-size: .78rem;
+}
+.menu-grid { grid-template-columns: 1fr; } /* menu: 1 card por linha */
+}
